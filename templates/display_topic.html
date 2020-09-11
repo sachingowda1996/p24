@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topics</title>
+</head>
+<body>
+    <h2>Topics are :</h2>
+    <table border="2pt">
+        <tr>
+            <th>Topic_id</th>
+            <th>Topic_Name</th>    
+        </tr>
+        {% if topics %}
+        {% for topic in topics %}
+        <tr>
+            <td>{{topic.id}}</td>
+            <td><a href="{% url 'display_topic' id=topic.id %}">{{topic.topic_name}}</a></td>           
+        </tr>
+        {% endfor %}
+        {% endif %}
+    </table>
+    
+</body>
+</html>

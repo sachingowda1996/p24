@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Webpage are:</h2>
+    <table border="2pt">
+        <tr>
+            <th>Webpage_id</th>
+            <th>Webpage_Topic</th>
+            <th>Webpage_Name</th>
+            <th>Webpage_URL</th>
+        </tr>
+        {% if webpages %}
+        {% for w in webpages %}
+        <tr>
+            <td>{{w.id}}</td>
+            <td><a href="{% url 'display_topic' id=w.topic.id %}">
+                {{w.topic.topic_name}}</a></td>
+            <td><a href="{% url 'display_webpage' webid=w.id %}">
+                {{w.name}}</a></td>
+            <td><a href="{{w.url}}">{{w.url}}</a></td>    
+        </tr>
+        {% endfor %}
+        {% endif %}
+    </table>
+</body>
+</html>
